@@ -1,3 +1,4 @@
+# 다른 사람의 풀이
 def solution(A, B):
     A, B = list(A), list(B)
 
