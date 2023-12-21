@@ -1,3 +1,4 @@
+# 챗지피티의 풀이
 def solution(chicken):
     # 서비스 치킨의 수를 초기화합니다.
     service_chicken = 0
@@ -11,6 +12,7 @@ def solution(chicken):
         coupons += 1
 
         # 치킨을 하나 줄입니다.
+        # 모든 치킨이 처리되었는지 확인?
         chicken -= 1
 
         # 쿠폰이 10장이 되면 서비스 치킨을 받고, 쿠폰을 10장 사용합니다.
