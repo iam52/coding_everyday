@@ -1,8 +1,9 @@
 def solution(s):
-    answer = ''
-    for i in sorted(list(s), reverse=True):
+    answer = []
+    for i in list(s):
         if i == i.lower():
-            answer += i
+            answer.append(i)
+            answer.sort(reverse=True)
         elif i == i.upper():
-            answer += i
-    return answer
+            answer.append(i)
+    return ''.join(answer)
