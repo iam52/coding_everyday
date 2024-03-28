@@ -1,18 +1,15 @@
-def gcd(a, b):
-    while b:
-        a, b = b, a % b
-    return a
-
 def solution(a, b):
-    # 기약분수로 만들기
-    divisor = gcd(a, b)
-    a //= divisor
-    b //= divisor
-    
-    # 분모에 2와 5 이외의 수가 있는지 확인
+    answer = 0
+    for i in range(2, min([a, b]) + 1):
+        while a % i == 0 and b % i == 0:
+            a = a // i
+            b = b // i
     while b % 2 == 0:
-        b //= 2
+        b = b // 2
     while b % 5 == 0:
-        b //= 5
-    
-    return 1 if b == 1 else 2
+        b = b // 5
+    if b == 1:
+        answer = 1
+    else:
+        answer = 2
+    return answer
