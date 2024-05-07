@@ -1,5 +1,10 @@
-
 def solution(n, k):
-    total = n*12000 + k*2000
-    service = (n // 10) * 2000
-    return total - service
+    answer = 0
+    l = n * 12000
+
+    for i in range(1, n+1):
+        if i % 10 == 0:
+            k -= 1
+
+    answer = l + (k * 2000)
+    return answer
