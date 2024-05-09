@@ -1,2 +1,4 @@
 def solution(message):
-    return len(message) * 2
+    answer = []
+    [answer.append(i) for i in message]
+    return len(answer) * 2
