@@ -5,8 +5,7 @@ def solution(num_list):
     for i in num_list:
         if i % 2 == 0:
             even += 1
-        elif i % 2 == 1:
+        else:
             odd += 1
-    answer.append(even)
-    answer.append(odd)
+    answer += [even, odd]
     return answer
