@@ -1,7 +1,2 @@
 def solution(my_string, is_suffix):
-    answer = 0
-    if my_string.endswith(is_suffix):
-        answer = 1
-    else:
-        answer = 0
-    return answer
+    return 1 if is_suffix == my_string[len(my_string)-len(is_suffix):] else 0
