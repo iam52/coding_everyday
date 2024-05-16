@@ -1,7 +1,2 @@
 def solution(my_string, is_prefix):
-    answer = 0
-    if my_string.startswith(is_prefix):
-        answer = 1
-    else:
-        answer = 0
-    return answer
+    return 1 if is_prefix in my_string[:len(is_prefix)] else 0
