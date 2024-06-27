@@ -5,12 +5,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int T = sc.nextInt();
         
-        StringBuilder sb = new StringBuilder();
-        
+        String stars = "";
         for (int i = 0; i < T; i++) {
-            sb.append("*");
+            stars += "*";
             
-            System.out.println(sb);
+            System.out.println(stars);
         }
     }
 }
