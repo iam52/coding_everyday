@@ -1,29 +1,17 @@
 import java.util.Scanner;
 
 public class Main {
+    private static final int[] FULL_SET = {1, 1, 2, 2, 2, 8};
+    
     public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-
-        int[] pieces = {0, 0, 0, 0, 0, 0};
-        for (int i = 0; i < pieces.length; i++) {
-            pieces[i] = scanner.nextInt();
+        
+        Scanner scanner  = new Scanner(System.in);
+        StringBuilder result = new StringBuilder();
+        
+        for (int piece : FULL_SET) {
+            result.append(piece - scanner.nextInt()).append(" ");
         }
-
-        int[] fullPieces = {1, 1, 2, 2, 2, 8};
-
-        for (int i = 0; i < pieces.length; i++) {
-            if (pieces[i] == fullPieces[i]) {
-                pieces[i] = 0;
-            } else if (pieces[i] > fullPieces[i]) {
-                pieces[i] = -(pieces[i] - fullPieces[i]);
-            } else if (pieces[i] < fullPieces[i]) {
-                pieces[i] = fullPieces[i] - pieces[i];
-            }
-        }
-
-        for (int piece : pieces) {
-            System.out.print(piece + " ");
-        }
+        
+        System.out.println(result);
     }
 }
