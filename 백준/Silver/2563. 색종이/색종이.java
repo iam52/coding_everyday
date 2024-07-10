@@ -14,7 +14,7 @@ public class Main {
             
             for (int j = x; j < x + 10; j++) {
                 for (int k = y; k < y + 10; k++) {
-                    paper[k][j] = 1;
+                    paper[j][k] = 1;
                 }
             }
         }
