@@ -7,6 +7,6 @@ public class Main {
         String N = sc.next();
         int B = sc.nextInt();
         
-        System.out.println(Integer.parseInt(N, B));
+        System.out.println(Long.parseLong(N, B));
     }
 }
