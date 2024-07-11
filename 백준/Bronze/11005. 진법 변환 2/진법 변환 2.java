@@ -7,20 +7,18 @@ public class Main {
         int N = sc.nextInt();
         int B = sc.nextInt();
         
-        System.out.println(convert(N, B));
-    }
-    
-    public static String convert(int N, int B) {
-        
-        if (N == 0) return "0";
-        
         StringBuilder result = new StringBuilder();
-        String digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         
         while (N > 0) {
-            result.insert(0, digits.charAt(N % B));
+            int remainder = N % B;
+            
+            if (remainder < 10) {
+                result.insert(0, (char) (remainder + '0'));
+            } else {
+                result.insert(0, (char) (remainder - 10 + 'A'));
+            }
             N /= B;
         }
-        return result.toString();
+        System.out.println(result);
     }
 }
