@@ -1,12 +1,17 @@
 class Solution {
     public int solution(int n, int m, int[] section) {
-        int roller = 0;
-        int rollerPos = 0;
         
-        for (int i = 0; i < section.length; i++) {
-            if (section[i] > rollerPos) {
+        boolean[] wall = new boolean[n + 1];
+        int roller = 0;
+        
+        for (int spot : section) {
+            wall[spot] = true;
+        }
+        
+        for (int i = 1; i <= n; i++) {
+            if (wall[i]) {
                 roller++;
-                rollerPos = section[i] + m - 1;
+                i += m - 1;
             }
         }
         return roller;
