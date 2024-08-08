@@ -17,7 +17,7 @@ class Solution {
                 cache.add(city);
             } else {
                 answer += cacheMiss;
-                if (cache.size() >= cacheSize && cacheSize > 0) {
+                if (cacheSize > 0 && cache.size() >= cacheSize) {
                     cache.remove(0);
                 }
                 if (cacheSize > 0) {
