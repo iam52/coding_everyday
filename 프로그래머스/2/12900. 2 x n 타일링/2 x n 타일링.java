@@ -8,7 +8,7 @@ class Solution {
         rt[2] = 2;
         
         for (int i = 3; i <= n; i++) {
-            rt[i] = (rt[i-1] + rt[i-2]) % mod;
+	        rt[i] = (rt[i-1] + rt[i-2]) % mod;
         }
         return rt[n];
     }
