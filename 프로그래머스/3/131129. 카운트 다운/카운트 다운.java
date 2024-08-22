@@ -4,7 +4,11 @@ class Solution {
     public int[] solution(int target) {
         int[] dp = new int[target + 1];
         int[] singles = new int[target + 1];
-        Arrays.fill(dp, Integer.MAX_VALUE);
+        
+        for (int i = 1; i <= target; i++) {
+            dp[i] = Integer.MAX_VALUE;
+        }
+        
         dp[0] = 0;
         
         List<Integer> scores = new ArrayList<>();
