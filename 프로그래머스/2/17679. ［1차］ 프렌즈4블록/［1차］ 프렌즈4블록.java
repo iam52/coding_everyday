@@ -15,6 +15,10 @@ class Solution {
             boolean[][] willRemove = new boolean[m][n];
             
             // 1. 2x2 블록 찾기
+            // CCBDE
+            // AAADE
+            // AAABF
+            // CCBBF
             for (int i = 0; i < m - 1; i++) {
                 for (int j = 0; j < n - 1; j++) {
                     if (map[i][j] != ' ' && 
