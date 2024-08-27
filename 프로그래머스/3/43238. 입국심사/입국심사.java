@@ -1,11 +1,19 @@
 class Solution {
     public long solution(int n, int[] times) {
-        long left = 0;
-        long right = (long) times[0] * n;
-        long answer = right;
         
-        while (left <= right) {
-            long mid = (left + right) / 2;
+        long maxTime = times[0];
+        for (int time : times) {
+            if (time > maxTime) {
+                maxTime = time;
+            }
+        }
+        
+        long fast = 0;
+        long slow = maxTime * n;
+        long answer = slow;
+        
+        while (fast <= slow) {
+            long mid = (fast + slow) / 2;
             long people = 0;
             
             for (int time : times)             {
@@ -14,9 +22,9 @@ class Solution {
             
             if (people >= n) {
                 answer = Math.min(answer, mid);
-                right = mid - 1;
+                slow = mid - 1;
             } else {
-                left = mid + 1;
+                fast = mid + 1;
             }
         }
         return answer;
