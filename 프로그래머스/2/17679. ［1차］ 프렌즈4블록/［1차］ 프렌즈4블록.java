@@ -14,7 +14,6 @@ class Solution {
             hasMatched = false;
             boolean[][] willRemove = new boolean[m][n];
             
-            // 1. 2x2 블록 찾기
             // CCBDE
             // AAADE
             // AAABF
@@ -34,7 +33,6 @@ class Solution {
                 }
             }
             
-            // 2. 블록 제거 및 카운트
             for (int i = 0; i < m; i++) {
                 for (int j = 0; j < n; j++) {
                     if (willRemove[i][j]) {
@@ -44,7 +42,6 @@ class Solution {
                 }
             }
             
-            // 3. 블록 아래로 떨어뜨리기
             for (int j = 0; j < n; j++) {
                 List<Character> column = new ArrayList<>();
                 for (int i = m - 1; i >= 0; i--) {
