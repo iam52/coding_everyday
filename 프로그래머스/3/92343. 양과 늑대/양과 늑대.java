@@ -1,6 +1,7 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-class Solution {
+public class Solution {
     private int maxSheep = 0; // 모을 수 있는 양의 최대 수를 저장할 변수
 
     public int solution(int[] info, int[][] edges) {
@@ -15,7 +16,7 @@ class Solution {
             tree[edge[0]].add(edge[1]);
         }
 
-        // DFS 탐색을 시작
+        // DFS 탐색 시작
         List<Integer> possibleNodes = new ArrayList<>();
         possibleNodes.add(0); // 루트 노드부터 시작
 
