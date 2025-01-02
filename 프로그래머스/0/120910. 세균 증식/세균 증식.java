@@ -1,6 +1,8 @@
 class Solution {
     public int solution(int n, int t) {
-        double time = Math.pow(2, t);
-        return n * (int)time;
+        for (int i = 0; i < t; i++) {
+            n *= 2;
+        }
+        return n;
     }
 }
