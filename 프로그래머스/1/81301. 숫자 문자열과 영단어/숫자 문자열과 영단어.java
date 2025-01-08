@@ -26,6 +26,7 @@ class Solution {
             }
             
             current.append(character);
+            
             for (Integer key : alphabets.keySet()) {
                 if (alphabets.get(key).equals(current.toString())) {
                     result.append(key);
