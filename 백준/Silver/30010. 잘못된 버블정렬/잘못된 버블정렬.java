@@ -7,9 +7,6 @@ public class Main {
         
         for (int i = N; i >= 1; i--) {
             System.out.println(i);
-            
-            if (i > 1) System.out.print(" ");
         }
-        
     }
 }
