@@ -19,6 +19,6 @@ public class Main {
             System.out.print(queue2.remove() + " ");
         }
 
-        System.out.println(queue1.peek());
+        System.out.println(queue1.remove());
     }
 }
