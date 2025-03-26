@@ -1,26 +1,22 @@
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-
-        List<Integer> list = new ArrayList<>();
-
-        for (int i = 0; i < 5; i++) {
-            int n = sc.nextInt();
-            list.add(n);
-        }
-
-        Collections.sort(list);
-
-        int sum = 0;
-        for (int i = 0; i < list.size(); i++) {
-            sum += list.get(i);
-        }
+        
+        int[] nums = IntStream
+            .range(0, 5)
+            .map(i -> sc.nextInt())
+            .toArray();
+        
+        int sum = IntStream.of(nums).sum();
+        
+        Arrays.sort(nums);
+        
         System.out.println(sum / 5);
+        System.out.println(nums[2]);
 
-        int center = list.size() / 2;
-        System.out.println(list.get(center));
     }
 }
