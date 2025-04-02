@@ -19,11 +19,24 @@ public class Main {
         }
 
         for (int target : mArr) {
-            if (Arrays.binarySearch(nArr, target) >= 0) {
-                System.out.println(1);
-            } else {
-                System.out.println(0);
+            int left = 0;
+            int right = nArr.length - 1;
+            int found = 0;
+
+            while (left <= right) {
+                int mid = left + (right - left) / 2;
+
+                if (nArr[mid] == target) {
+                    found = 1;
+                    break;
+                } else if (nArr[mid] < target) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
             }
+            System.out.println(found);
+
         }
     }
 }
