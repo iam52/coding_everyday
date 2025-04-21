@@ -13,11 +13,21 @@ public class Main {
             alphs.add(br.readLine());
         }
         
-        alphs.stream()
-            .sorted((a, b) -> {
-                int lenDiff = a.length() - b.length();
-                return lenDiff != 0 ? lenDiff : a.compareTo(b);
-            })
-            .forEach(System.out::println);
+        List<String> toList = new ArrayList<>(alphs);
+        
+        toList.sort((a, b) -> {
+            if (a.length() != b.length()) {
+                return a.length() - b.length();
+            } else {
+                return a.compareTo(b);
+            }
+        });
+        
+        StringBuilder result = new StringBuilder();
+        for (String word : toList) {
+            result.append(word).append("\n");
+        }
+        
+        System.out.println(result);
     }
 }
