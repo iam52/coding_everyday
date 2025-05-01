@@ -1,18 +1,16 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int year = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int result = 0;
-        if (year % 4 == 0) {
-            if (year % 100 != 0 || year % 400 == 0) {
-                result = 1;
-            } else {
-                result = 0;
-            }
+        int n = Integer.parseInt(br.readLine());
+
+        if ((n % 4 == 0 && n % 100 != 0) || n % 400 == 0) {
+            System.out.println(1);
+        } else {
+            System.out.println(0);
         }
-        System.out.println(result);
     }
 }
