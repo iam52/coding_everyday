@@ -4,27 +4,30 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        
+
         StringTokenizer st = new StringTokenizer(br.readLine());
         int m = Integer.parseInt(st.nextToken());
         int n = Integer.parseInt(st.nextToken());
         
+        boolean[] nonPrime = new boolean[n + 1];
+        
+        nonPrime[0] = nonPrime[1] = true;
+        
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (!nonPrime[i]) {
+                for (int j = i * i; j <= n; j += i) {
+                    nonPrime[j] = true;
+                }
+            }
+        }
+        
+        StringBuilder sb = new StringBuilder();
         for (int i = m; i <= n; i++) {
-            if (isPrime(i)) {
-                System.out.println(i);
-            }
-        }
-    }
-    
-    public static boolean isPrime(int num) {
-        if (num < 2) return false;
-        
-        for (int i = 2; i * i <= num; i++) {
-            if (num % i == 0) {
-                return false;
+            if (!nonPrime[i]) {
+                sb.append(i).append("\n");
             }
         }
         
-        return true;
+        System.out.println(sb);
     }
 }
