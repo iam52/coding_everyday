@@ -21,18 +21,20 @@ public class Main {
                 int x = Integer.parseInt(st.nextToken());
                 deque.addLast(x);
             } else if (num == 3) {
-                System.out.println(!deque.isEmpty() ? deque.pollFirst() : -1);
+                sb.append(!deque.isEmpty() ? deque.pollFirst() : -1).append("\n");
             } else if (num == 4) {
-                System.out.println(!deque.isEmpty() ? deque.pollLast() : -1);
+                sb.append(!deque.isEmpty() ? deque.pollLast() : -1).append("\n");
             } else if (num == 5) {
-                System.out.println(deque.size());
+                sb.append(deque.size()).append("\n");
             } else if (num == 6) {
-                System.out.println(deque.isEmpty() ? 1 : 0);
+                sb.append(deque.isEmpty() ? 1 : 0).append("\n");
             } else if (num == 7) {
-                System.out.println(!deque.isEmpty() ? deque.peekFirst() : -1);
+                sb.append(!deque.isEmpty() ? deque.peekFirst() : -1).append("\n");
             } else if (num == 8) {
-                System.out.println(!deque.isEmpty() ? deque.peekLast() : -1);
+                sb.append(!deque.isEmpty() ? deque.peekLast() : -1).append("\n");
             }
         }
+
+        System.out.println(sb);
     }
 }
