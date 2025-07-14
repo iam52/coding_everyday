@@ -3,10 +3,11 @@ class Solution {
         int sum = 0;
         
         for (int num : numbers) {
+            sum += num;
+            
             if (sum > n) {
                 break;
             }
-            sum += num;
         }
         
         return sum;
