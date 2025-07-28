@@ -4,28 +4,37 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        List<Integer> listX = new ArrayList<>();
-        List<Integer> listY = new ArrayList<>();
-
-        for (int i = 0; i < 3; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            int x = Integer.parseInt(st.nextToken());
-            int y = Integer.parseInt(st.nextToken());
-
-            if (!listX.contains(x)) {
-                listX.add(x);
-            } else {
-                listX.remove(listX.indexOf(x));
-            }
-
-            if (!listY.contains(y)) {
-                listY.add(y);
-            } else {
-                listY.remove(listY.indexOf(y));
-            }
+        
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int x1 = Integer.parseInt(st.nextToken());
+        int y1 = Integer.parseInt(st.nextToken());
+        
+        st = new StringTokenizer(br.readLine());
+        int x2 = Integer.parseInt(st.nextToken());
+        int y2 = Integer.parseInt(st.nextToken());
+        
+        st = new StringTokenizer(br.readLine());
+        int x3 = Integer.parseInt(st.nextToken());
+        int y3 = Integer.parseInt(st.nextToken());
+        
+        int x4, y4;
+        
+        if (x1 == x2) {
+            x4 = x3;
+        } else if (x2 == x3) {
+            x4 = x1;
+        } else {
+            x4 = x2;
+        }
+        
+        if (y1 == y2) {
+            y4 = y3;
+        } else if (y2 == y3) {
+            y4 = y1;
+        } else {
+            y4 = y2;
         }
 
-        System.out.println(listX.get(0) + " " + listY.get(0));
+        System.out.println(x4 + " " + y4);
     }
 }
