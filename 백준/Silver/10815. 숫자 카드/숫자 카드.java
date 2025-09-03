@@ -1,33 +1,54 @@
 import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
 
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-
-        int[] nList = new int[n];
+        int n = Integer.parseInt(br.readLine());
+        int[] arrN = new int[n];
+        StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; i++) {
-            int nNums = sc.nextInt();
-            nList[i] = nNums;
+            int myCard = Integer.parseInt(st.nextToken());
+            arrN[i] = myCard;
         }
-        Arrays.sort(nList);
-
-        int m = sc.nextInt();
-
-        int[] mList = new int[m];
+        
+        Arrays.sort(arrN);
+        
+        int m = Integer.parseInt(br.readLine());
+        int[] arrM = new int[m];
+        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < m; i++) {
-            int mNums = sc.nextInt();
-            mList[i] = mNums;
+            int yourCard = Integer.parseInt(st.nextToken());
+            arrM[i] = yourCard;
         }
+        
+        for (int card : arrM) {
+            sb.append(binarySearch(arrN, card)).append(" ");
+        }
+        
+        System.out.println(sb);
+    }
+    
+    private static int binarySearch(int[] arr, int target) {
+        int start = 0;
+        int end = arr.length - 1;
 
-        for (int t : mList) {
-            if (Arrays.binarySearch(nList, t) >= 0) {
-                System.out.print("1" + " ");
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            if (arr[mid] == target) {
+                return 1;
             } else {
-                System.out.print("0" + " ");
+                if (arr[mid] < target) {
+                    start = mid + 1;
+                } else {
+                    end = mid - 1;
+                }
             }
         }
 
+        return 0;
     }
 }
