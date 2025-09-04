@@ -14,28 +14,16 @@ public class Main {
             int order = Integer.parseInt(st.nextToken());
 
             if (order == 1) {
-                int x = Integer.parseInt(st.nextToken());
-                stack.add(x);
+                int input = Integer.parseInt(st.nextToken());
+                stack.add(input);
             } else if (order == 2) {
-                if (!stack.isEmpty()) {
-                    System.out.println(stack.pop());
-                } else {
-                    System.out.println(-1);
-                }
+                System.out.println(!stack.empty() ? stack.pop() : -1);
             } else if (order == 3) {
                 System.out.println(stack.size());
             } else if (order == 4) {
-                if (stack.isEmpty()) {
-                    System.out.println(1);
-                } else {
-                    System.out.println(0);
-                }
+                System.out.println(stack.empty() ? 1 : 0);
             } else if (order == 5) {
-                if (!stack.isEmpty()) {
-                    System.out.println(stack.peek());
-                } else {
-                    System.out.println(-1);
-                }
+                System.out.println(!stack.empty()? stack.peek() : -1);
             }
         }
     }
