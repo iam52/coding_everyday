@@ -1,39 +1,42 @@
 import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        int t = sc.nextInt();
-        sc.nextLine();
-
+    public static void main (String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        int t = Integer.parseInt(br.readLine());
+        
         for (int i = 0; i < t; i++) {
-            String p = sc.nextLine();
-            System.out.println(matchingParis(p));
+            String p = br.readLine();
+            
+            System.out.println(isVps(p));
         }
     }
-
-    public static String matchingParis(String s) {
+    
+    private static String isVps(String p) {
         Stack<Integer> stack = new Stack<>();
-
-        int answer = 0;
-
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-
+        
+        int count = 0;
+        for (int i = 0; i < p.length(); i++) {
+            char c = p.charAt(i);
+            
             if (c == '(') {
-                stack.push(i);
-                answer++;
+                stack.add(i);
+                count++;
             } else if (c == ')') {
                 if (!stack.isEmpty()) {
                     stack.pop();
                 }
-                answer--;
-                if (answer < 0) return "NO";
+                count--;
+            }
+            
+            if (count < 0) {
+                return "NO";
             }
         }
-
-        if (answer == 0) {
+        
+        if (count == 0) {
             return "YES";
         } else {
             return "NO";
