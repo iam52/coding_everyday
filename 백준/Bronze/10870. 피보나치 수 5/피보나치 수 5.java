@@ -1,4 +1,3 @@
-import java.util.*;
 import java.io.*;
 
 public class Main {
@@ -7,18 +6,15 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
 
-        int[] dp = new int[n + 1];
+        System.out.println(fibo(n));
 
-        for (int i = 0; i <= n; i++) {
-            if (i == 0) {
-                dp[i] = 0;
-            } else if (i == 1) {
-                dp[i] = 1;
-            } else {
-                dp[i] = dp[i - 1] + dp[i - 2];
-            }
+    }
+    
+    private static long fibo(int num) {
+        if (num <= 1) {
+            return num;
+        } else {
+            return fibo(num - 2) + fibo(num - 1);
         }
-
-        System.out.println(dp[dp.length - 1]);
     }
 }
