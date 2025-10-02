@@ -2,35 +2,20 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        long M = 1234567891;
+        int r = 31;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
+        int l = Integer.parseInt(br.readLine()); // 길이
+        String str = br.readLine(); // 한 줄 전체 입력
 
-        int l = Integer.parseInt(br.readLine());
+        long sum = 0;
+        long pow = 1; // 31^0
 
         for (int i = 0; i < l; i++) {
-            String str = br.readLine();
-            sb.append(str);
-
-            if (sb.length() == l) {
-                break;
-            }
+            int alphToInt = str.charAt(i) - 'a' + 1; // 'a':1, ..., 'z':26
+            sum = (sum + alphToInt * pow % M) % M;
+            pow = (pow * r) % M;
         }
-
-        int sum = 0;
-        for (int i = 0; i < sb.length(); i++) {
-
-
-            char c = sb.charAt(i);
-
-            int alphToInt = c - 96;
-
-            if (l == 1) {
-                sum += alphToInt;
-            } else {
-                sum += (int) (alphToInt * Math.pow(31, i));
-            }
-        }
-
         System.out.println(sum);
     }
 }
