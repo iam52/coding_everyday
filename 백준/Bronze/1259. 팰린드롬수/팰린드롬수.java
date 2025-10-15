@@ -10,13 +10,12 @@ public class Main {
 
             if (t == 0) break;
 
-            String reverse = "";
+            StringBuilder reverse = new StringBuilder();
             for (int i = iToS.length() - 1; i >= 0; i--) {
-                reverse += iToS.charAt(i);
-
+                reverse.append(iToS.charAt(i));
             }
 
-            if (iToS.equals(reverse)) {
+            if (iToS.contentEquals(reverse)) {
                 System.out.println("yes");
             } else {
                 System.out.println("no");
