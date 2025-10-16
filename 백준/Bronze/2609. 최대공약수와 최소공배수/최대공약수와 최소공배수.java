@@ -1,0 +1,35 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
+        
+        int temp = 0;
+        if (a < b) {
+            temp = a;
+            a = b;
+            b = temp;
+        }
+        
+        System.out.println(gcp(a, b));
+        System.out.println(lcm(a, b));
+    }
+    
+    private static int gcp(int a, int b) {
+        while (b != 0) {
+            int remainder = a % b;
+            a = b;
+            b = remainder;
+        }
+        return a;
+    }
+    
+    private static int lcm(int a, int b) {
+        return (a * b) / gcp(a, b);
+    }
+}
