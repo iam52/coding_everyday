@@ -9,13 +9,6 @@ public class Main {
         int a = Integer.parseInt(st.nextToken());
         int b = Integer.parseInt(st.nextToken());
         
-        int temp = 0;
-        if (a < b) {
-            temp = a;
-            a = b;
-            b = temp;
-        }
-        
         System.out.println(gcp(a, b));
         System.out.println(lcm(a, b));
     }
